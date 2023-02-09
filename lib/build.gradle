@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id 'maven-publish'
 }
 
 compileJava.options.encoding = "UTF-8"
@@ -48,6 +49,28 @@ jar {
     from {
         configurations.runtimeClasspath.collect {
             it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "OSSRH"
+      url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+      credentials {
+        username = System.getenv("MAVEN_USERNAME")
+        password = System.getenv("MAVEN_PASSWORD")
+      }
+    }
+  }
+  publications {
+        maven(MavenPublication) {
+            groupId = 'io.github.openapi-sdks'
+            artifactId = 'speakeasy'
+            version = '0.1.0'
+
+            from components.java
         }
     }
 }
