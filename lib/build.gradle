@@ -114,3 +114,9 @@ signing {
     useInMemoryPgpKeys(signingKey, signingPassphrase)
     sign publishing.publications.maven
 }
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
