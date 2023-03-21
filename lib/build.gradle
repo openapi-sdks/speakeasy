@@ -42,6 +42,7 @@ tasks.named('test') {
 
 java {
     withSourcesJar()
+    withJavadocJar()
 }
 
 jar {
@@ -76,6 +77,33 @@ publishing {
             version = '0.1.0'
 
             from components.java
+            
+            pom {
+                name = 'mycompany'
+                description = 'mycompany SDK enabling developers to integrate their applications with mycompany services'
+                url = 'https://github.com/mycompany/mycompany'
+                scm {
+                    url = 'https://github.com/mycompany/mycompany'
+                    connection = 'scm:git:ssh://git@github.mycompany/mycompany.git'
+                }
+                licenses {
+                    license {
+                        name = 'The MIT License (MIT)'
+                        url = 'https://mit-license.org/'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'mycompany'
+                        organization = 'mycompany'
+                        email = 'mycompany@mycompany.com'
+                    }
+                }
+                organization {
+                    name = 'mycompany'
+                    url = 'https://www.mycompany.com/'
+                }
+            }
         }
     }
 }
