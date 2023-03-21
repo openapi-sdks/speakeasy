@@ -82,7 +82,7 @@ publishing {
 
 signing {
     def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
-    useInMemoryPgpKeys(signingKey, signingPassword)
+    def signingPassphrase = findProperty("signingPassphrase")
+    useInMemoryPgpKeys(signingKey, signingPassphrase)
     sign publishing.publications.maven
 }
