@@ -29,7 +29,7 @@ public class Apis {
     /**
      * deleteApi - Delete an Api.
      *
-     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas & Request Logs (if using a Postgres datastore).
+     * Delete a particular version of an Api. The will also delete all associated ApiEndpoints, Metadata, Schemas and Request Logs (if using a Postgres datastore).
     **/
     public dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiResponse deleteApi(dev.speakeasyapi.javaclientsdk.models.operations.DeleteApiRequest request) throws Exception {
         String baseUrl = this._serverUrl;
